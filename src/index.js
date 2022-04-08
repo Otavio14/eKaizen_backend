@@ -20,8 +20,26 @@
  * - Run this code in Node.js localy
  */
 
-import -> random, seed, checkRandomNumber -> from ./randomNumberGenerator;
+import { random, seed, checkRandomNumber } from "./randomNumberGenerator.js";
 
 seed(192837465);
-//const numbers = [];
-//let object = {};
+const map = new Map();
+const numbers = [];
+let object = {};
+
+for (let index = 0; index <= 8; index++) {
+  map.set(index, random());
+}
+
+for (const key of map.keys()) {
+  numbers.push(map.get(key));
+}
+
+object = {
+  name: "Otávio da Silva Rovere",
+  email: "otaviorovere@gmail.com",
+  response: checkRandomNumber(numbers),
+  numbers: numbers,
+};
+
+console.log(object);

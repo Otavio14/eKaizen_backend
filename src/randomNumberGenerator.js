@@ -10,7 +10,7 @@ let numbers = [
   "0.8014283726497524",
   "0.6599671903586568",
   "0.39207733233979525",
-  "0.9243979984480575"
+  "0.9243979984480575",
 ];
 
 export function seed(seed) {
@@ -23,15 +23,15 @@ export function random() {
 }
 
 export function checkRandomNumber(array) {
-  array.foreach((element) -> {
-    numbers.includes(toString(element))
+  array.forEach((element) => {
+    !numbers.includes(element.toString())
       ? (validator = false)
-      : console.log("iquals");
+      : console.log("equals");
   });
 
   validator
     ? (payload = JSON.parse('{ "status": "success"}'))
     : (payload = JSON.parse('{ "status": "error"}'));
 
-  retorno payload;
+  return payload;
 }
